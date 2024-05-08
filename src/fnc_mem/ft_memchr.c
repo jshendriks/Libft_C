@@ -6,19 +6,17 @@
 /*   By: jhendrik <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/14 13:17:09 by jhendrik      #+#    #+#                 */
-/*   Updated: 2023/01/13 18:14:15 by jhendrik      ########   odam.nl         */
+/*   Updated: 2024/05/08 11:31:52 by jagna         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-/*This file contains the function ft_memchr().
- * ft_memchr(const void *str, int c, size_t n):
+/* void *ft_memchr(const void *str, int c, size_t n):
  		If str is a NULL-pointer the function returns NULL.
 		Otherwise, the function searches n bytes for 
 		the character c in str byte by byte.
 		If the function found the character c, 
 		it returns the pointer to the character in str.
-		This function is not protected against overflow.
  */
 
 void	*ft_memchr(const void *str, int c, size_t n)

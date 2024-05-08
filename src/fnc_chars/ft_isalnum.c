@@ -6,7 +6,7 @@
 /*   By: jhendrik <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/11 11:50:33 by jhendrik      #+#    #+#                 */
-/*   Updated: 2023/01/11 10:31:14 by jhendrik      ########   odam.nl         */
+/*   Updated: 2024/05/08 11:16:17 by jagna         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
  *ft_isalnum(int nb):
  		This function checks whether the character given as an int in ASCII value,
 	   	is a capital letter, lowercase letter or a number in ASCII value.
-		If the input is not one of these, the function returns a zero.
+		If the input is none of these, the function returns a zero.
 		Otherwise, the function returns one.
  */
 

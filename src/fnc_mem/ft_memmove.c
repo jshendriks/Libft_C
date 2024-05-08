@@ -6,7 +6,7 @@
 /*   By: jhendrik <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 10:21:48 by jhendrik      #+#    #+#                 */
-/*   Updated: 2023/01/18 10:15:39 by jhendrik      ########   odam.nl         */
+/*   Updated: 2024/05/08 11:41:54 by jagna         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -15,7 +15,7 @@
 			- ft_dst_s_src()
 			- ft_dst_b_src()
 			- ft_memmove()
- * ft_dst_s_src(void *dst, const void *src, size_t n):
+ * st_dst_s_src(void *dst, const void *src, size_t n):
  		This function moves n bytes of src in to dst
 		starting from the beginning to the end of src and dst. 
 		This function expects that n is smaller or equal to
@@ -25,7 +25,7 @@
 		the function has undefined behavior.
 		This function returns dst.
 
- * ft_dst_b_src(void *dst, const void *src, size_t n):
+ * st_dst_b_src(void *dst, const void *src, size_t n):
  		This function moves n bytes of src in to dst 
 		starting from the end to the beginning of src and dst. 
 		This function expects that n is smaller or equal to 
@@ -49,7 +49,7 @@
 		this function has undefined behavior.
  */
 
-static void	*ft_dst_s_src(void *dst, const void *src, size_t n)
+static void	*st_dst_s_src(void *dst, const void *src, size_t n)
 {
 	char		*ptr_dst;
 	const char	*ptr_src;
@@ -66,7 +66,7 @@ static void	*ft_dst_s_src(void *dst, const void *src, size_t n)
 	return (dst);
 }
 
-static void	*ft_dst_b_src(void *dst, const void *src, size_t n)
+static void	*st_dst_b_src(void *dst, const void *src, size_t n)
 {
 	char		*ptr_dst;
 	const char	*ptr_src;

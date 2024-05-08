@@ -6,20 +6,16 @@
 /*   By: jhendrik <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/18 11:22:13 by jhendrik      #+#    #+#                 */
-/*   Updated: 2023/01/18 09:49:03 by jhendrik      ########   odam.nl         */
+/*   Updated: 2024/05/08 11:51:07 by jagna         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 #include <stddef.h>
 
 /*This file contains the functions:
-			- ft_isspace(int)
-			- rec_atoi(const char *, int, int)
+			- st_rec_atoi(const char *, int, int)
 			- ft_atoi(const char *)
- *ft_isspace(int c):
- 		Checks whether c is a space character in ASCII. 
- 		If c is a space character, the function returns one.
-		Else it returns zero.
- *rec_atoi(const char *str, int nb, int sgn):
+ *st_rec_atoi(const char *str, int nb, int sgn):
  		Recursively converts the string pointed to by str to an int, 
  		which is stored in nb. 
  		This function returns an int.
@@ -33,20 +29,11 @@
  *ft_atoi(const char *str):
  		First checks whether str is a NULL-pointer or not. 
  		If str is not a NULL-pointer, 
-		then the function rec_atoi() is called.
+		then the function st_rec_atoi() is called.
 		This function returns an int.
  */
 
-static int	ft_isspace(int c)
-{
-	if (c == '\t' || c == '\n' || c == '\v')
-		return (1);
-	if (c == '\f' || c == '\r' || c == ' ')
-		return (1);
-	return (0);
-}
-
-static int	rec_atoi(const char *str, int nb, int sgn)
+static int	st_rec_atoi(const char *str, int nb, int sgn)
 {
 	if (*str == '\0')
 		return (nb);
@@ -54,22 +41,22 @@ static int	rec_atoi(const char *str, int nb, int sgn)
 	{
 		if (sgn != 0 || nb != 0)
 			return (nb);
-		return (rec_atoi(str + 1, nb, sgn));
+		return (st_rec_atoi(str + 1, nb, sgn));
 	}
 	else if (*str == '-' || *str == '+')
 	{
 		if (*str == '-' && sgn == 0)
-			return (rec_atoi(str + 1, nb, -1));
+			return (st_rec_atoi(str + 1, nb, -1));
 		else if (*str == '+' && sgn == 0)
-			return (rec_atoi(str + 1, nb, 1));
+			return (st_rec_atoi(str + 1, nb, 1));
 		else
 			return (nb);
 	}
 	else if (*str >= '0' && *str <= '9')
 	{
 		if (sgn == 1 || sgn == 0)
-			return (rec_atoi(str + 1, nb * 10 + (*str - '0'), 1));
-		return (rec_atoi(str + 1, nb * 10 - (*str - '0'), sgn));
+			return (st_rec_atoi(str + 1, nb * 10 + (*str - '0'), 1));
+		return (st_rec_atoi(str + 1, nb * 10 - (*str - '0'), sgn));
 	}
 	else
 		return (nb);
@@ -81,6 +68,6 @@ int	ft_atoi(const char *str)
 
 	if (str == NULL)
 		return (0);
-	nb = rec_atoi(str, 0, 0);
+	nb = st_rec_atoi(str, 0, 0);
 	return (nb);
 }

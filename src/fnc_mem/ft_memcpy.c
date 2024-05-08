@@ -6,13 +6,12 @@
 /*   By: jhendrik <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 09:24:00 by jhendrik      #+#    #+#                 */
-/*   Updated: 2023/01/13 09:44:13 by jhendrik      ########   odam.nl         */
+/*   Updated: 2024/05/08 11:41:54 by jagna         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
 
-/*This file contains the function ft_memcpy().
- *ft_memcpy(void *dst, const void *src, size_t n):
+/* ft_memcpy(void *dst, const void *src, size_t n):
  		This function copies n bytes of the content in 
 		the container pointed to by src, 
 		in to the container pointed to by dst.

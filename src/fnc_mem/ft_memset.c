@@ -6,13 +6,12 @@
 /*   By: jhendrik <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/11 12:32:06 by jhendrik      #+#    #+#                 */
-/*   Updated: 2023/01/18 09:39:54 by jhendrik      ########   odam.nl         */
+/*   Updated: 2024/05/08 11:45:20 by jagna         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-/*This file contains the function ft_memset().
- *ft_memset(void *b, int c, size_t len):
+/* ft_memset(void *b, int c, size_t len):
  		This function fills the given memory, pointed to by b, 
 		until len bytes with the given ASCII value c.
 		If b is a NULL-pointer, 

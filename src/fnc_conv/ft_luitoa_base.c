@@ -6,15 +6,15 @@
 /*   By: jhendrik <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/11 12:41:07 by jhendrik      #+#    #+#                 */
-/*   Updated: 2023/01/18 10:14:24 by jhendrik      ########   odam.nl         */
+/*   Updated: 2024/05/08 12:30:53 by jagna         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 /*This file contains the functions:
-			- ft_nblen()
+			- st_nblen()
 			- ft_luitoa_base().
- *ft_nblen(long unsigned int n, int base):
+ *st_nblen(long unsigned int n, int base):
  		This function returns the amount of digits n consists 
 		of if it is displayed in the given base.
  *ft_luitoa_base(long unsigned int n, int base, char *base_str):
@@ -33,7 +33,7 @@
 		n is given in base ten representation.
  */
 
-static int	ft_nblen(long unsigned int n, int base)
+static int	st_nblen(long unsigned int n, int base)
 {
 	long unsigned int	i;
 	long unsigned int	cnt;
@@ -68,7 +68,7 @@ char	*ft_luitoa_base(long unsigned int n, int base, char *base_str)
 		return (NULL);
 	if ((int)ft_strlen((const char *)base_str) != base)
 		return (NULL);
-	n_len = ft_nblen(n, base);
+	n_len = st_nblen(n, base);
 	ptr_n = ft_calloc(n_len + 1, 1);
 	if (ptr_n == NULL)
 		return (NULL);

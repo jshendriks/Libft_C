@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_toupper.c                                       :+:    :+:            */
+/*   ft_tolower.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jhendrik <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/14 10:10:07 by jhendrik      #+#    #+#                 */
-/*   Updated: 2023/01/13 17:35:39 by jhendrik      ########   odam.nl         */
+/*   Created: 2022/10/14 10:22:58 by jhendrik      #+#    #+#                 */
+/*   Updated: 2024/05/08 11:16:17 by jagna         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*This file contains the function ft_toupper().
- * ft_toupper(int c):
- 		This function returns the value of c if c 
-		does not represent a lowercase letter in ASCII.
-		Otherwise, the function returns the ASCII value of 
-		the uppercase letter c represents.
-		The function is not protected against overflow.
+/*This file contains the function ft_tolower().
+ * ft_tolower(int c)
+ 		This function returns the lowercase letter in ASCII of c, 
+		if c is an uppercase letter in ASCII.
+		Otherwise, the function returns c.
  */
 
-int	ft_toupper(int c)
+int	ft_tolower(int c)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
 	return (c);
 }
