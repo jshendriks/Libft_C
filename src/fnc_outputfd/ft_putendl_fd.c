@@ -6,13 +6,12 @@
 /*   By: jhendrik <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/25 15:32:59 by jhendrik      #+#    #+#                 */
-/*   Updated: 2023/01/18 09:23:58 by jhendrik      ########   odam.nl         */
+/*   Updated: 2024/05/12 16:03:26 by jagna         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-/*This file contains the function ft_putendl_fd().
- * ft_putendl_fd(char *s, int fd):
+/* ft_putendl_fd(char *s, int fd):
 		This function outputs the string s to the 
 		file descriptor fd by calling ft_putstr_fd and 
 		after this outputs an enter ('\n') to the 

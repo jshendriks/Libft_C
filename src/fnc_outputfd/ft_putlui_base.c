@@ -6,7 +6,7 @@
 /*   By: jhendrik <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/16 13:46:41 by jhendrik      #+#    #+#                 */
-/*   Updated: 2023/01/18 10:16:07 by jhendrik      ########   odam.nl         */
+/*   Updated: 2024/05/12 16:08:51 by jagna         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -31,14 +31,14 @@
 		This function has no output.
  */
 
-static void	rec_putluint(long unsigned int n, int base, char *sb, int fd)
+static void	st_rec_putluint(long unsigned int n, int base, char *sb, int fd)
 {
 	if (n >= 0 && n <= (long unsigned int)(base - 1))
 		write(fd, sb + n, 1);
 	else
 	{
-		rec_putluint(n / base, base, sb, fd);
-		rec_putluint(n % base, base, sb, fd);
+		st_rec_putluint(n / base, base, sb, fd);
+		st_rec_putluint(n % base, base, sb, fd);
 	}
 }
 
@@ -47,6 +47,6 @@ void	ft_putlui_fd_base(long unsigned int n, int base, char *sb, int fd)
 	if (fd >= 0 && fd < FD_SETSIZE)
 	{
 		if (base > 1 && (size_t)base == ft_strlen(sb))
-			rec_putluint(n, base, sb, fd);
+			st_rec_putluint(n, base, sb, fd);
 	}
 }

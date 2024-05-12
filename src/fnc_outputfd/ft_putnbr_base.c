@@ -6,9 +6,10 @@
 /*   By: jhendrik <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/16 12:47:06 by jhendrik      #+#    #+#                 */
-/*   Updated: 2023/01/18 09:25:28 by jhendrik      ########   odam.nl         */
+/*   Updated: 2024/05/12 16:10:27 by jagna         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+#include <limits.h>
 #include "libft.h"
 
 /*This file contains the functions rec_putint() and ft_putnbr_fd_base().
@@ -31,24 +32,24 @@
 		This function has no return value.
  */
 
-static void	rec_putint(int n, int base, char *sbase, int fd)
+static void	st_rec_putint(int n, int base, char *sbase, int fd)
 {
 	if (n >= 0 && n <= (base - 1))
 		write(fd, sbase + n, 1);
-	else if (n == -2147483648)
+	else if (n == INT_MIN)
 	{
-		rec_putint(n / base, base, sbase, fd);
-		rec_putint((-1) * (n % base), base, sbase, fd);
+		st_rec_putint(n / base, base, sbase, fd);
+		st_rec_putint((-1) * (n % base), base, sbase, fd);
 	}
 	else if (n < 0)
 	{
 		write(fd, "-", 1);
-		rec_putint((-1) * n, base, sbase, fd);
+		st_rec_putint((-1) * n, base, sbase, fd);
 	}
 	else
 	{
-		rec_putint(n / base, base, sbase, fd);
-		rec_putint(n % base, base, sbase, fd);
+		st_rec_putint(n / base, base, sbase, fd);
+		st_rec_putint(n % base, base, sbase, fd);
 	}
 }
 
@@ -57,6 +58,6 @@ void	ft_putnbr_fd_base(int n, int base, char *sbase, int fd)
 	if (fd >= 0 || fd < FD_SETSIZE)
 	{
 		if (base > 1 && (size_t)base == ft_strlen(sbase))
-			rec_putint(n, base, sbase, fd);
+			st_rec_putint(n, base, sbase, fd);
 	}
 }

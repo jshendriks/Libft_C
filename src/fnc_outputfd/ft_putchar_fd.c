@@ -6,13 +6,12 @@
 /*   By: jhendrik <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/25 14:58:28 by jhendrik      #+#    #+#                 */
-/*   Updated: 2023/01/16 12:24:07 by jhendrik      ########   odam.nl         */
+/*   Updated: 2024/05/12 16:02:35 by jagna         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-/*This file contains the function ft_putchar_fd().
- * ft_putchar_fd(char c, int fd):
+/* ft_putchar_fd(char c, int fd):
 		This function uses write() to put the character c in 
 		the file, stdout, stdin or stderr.
 		If the fd is negative or is bigger than 
