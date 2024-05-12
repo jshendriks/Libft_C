@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstiter_bonus.c                                 :+:    :+:            */
+/*   ft_lstsize_bonus.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jhendrik <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/11/01 09:12:14 by jhendrik      #+#    #+#                 */
-/*   Updated: 2023/01/18 08:47:54 by jhendrik      ########   odam.nl         */
+/*   Created: 2022/10/28 16:15:05 by jhendrik      #+#    #+#                 */
+/*   Updated: 2024/05/12 16:44:33 by jagna         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-/*This file contains the function ft_lstiter().
- * ft_lstiter(t_list *lst, void (*f)(void *)):
- 		This function iterates through the list lst and
-		applies the given function f on the content of each 
-		list element (node).
-		This function has no return value.
+/* ft_lstsize(t_list *lst):
+		This function counts the amount of list elements in the given list lst.
+		This even works if lst is NULL.
  */
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+int	ft_lstsize(t_list *lst)
 {
-	t_list	*temp;
+	t_list	*ptr;
+	int		size;
 
-	temp = lst;
-	while (temp != NULL)
+	ptr = lst;
+	size = 0;
+	while (ptr != NULL)
 	{
-		f(temp->content);
-		temp = temp->next;
+		size++;
+		ptr = ptr->next;
 	}
+	return (size);
 }

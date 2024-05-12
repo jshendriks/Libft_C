@@ -6,13 +6,12 @@
 /*   By: jhendrik <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 08:53:07 by jhendrik      #+#    #+#                 */
-/*   Updated: 2023/01/18 08:40:28 by jhendrik      ########   odam.nl         */
+/*   Updated: 2024/05/12 16:28:04 by jagna         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-/*This file contains the function ft_lstadd_back().
- * ft_lstadd_back(t_list **lst, t_list *new):
+/* ft_lstadd_back(t_list **lst, t_list *new):
 		If *lst is NULL, the list element new is the first element of the list.
 		Otherwise, the function looks for the last element in *lst and sets
 		the pointer next in the last list element to the pointer to new.

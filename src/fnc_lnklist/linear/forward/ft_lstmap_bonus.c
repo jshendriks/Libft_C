@@ -6,18 +6,18 @@
 /*   By: jhendrik <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 11:21:23 by jhendrik      #+#    #+#                 */
-/*   Updated: 2023/01/18 10:12:25 by jhendrik      ########   odam.nl         */
+/*   Updated: 2024/05/12 16:42:38 by jagna         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 /*This file contains the functions:
-			- extra_lstclear()
-			- nextra_lstclear()
+			- st_extra_lstclear()
+			- st_nextra_lstclear()
 			- ft_lstmap()
- * extra_lstclear(t_list **lst, void (*del)(void *)):
+ * st_extra_lstclear(t_list **lst, void (*del)(void *)):
 		This function calls ft_lstclear() and returns NULL.
- * nextra_lstclear(t_list **lst, void (*del)(void *), void *cntt):
+ * st_nextra_lstclear(t_list **lst, void (*del)(void *), void *cntt):
 		This function deletes the content pointed to by cntt, 
 		using the given delete function.
 		To clear the list, ft_lstclear() is called.
@@ -36,13 +36,13 @@
 		if one of these fails the rest of the nodes have to be freed.
  */
 
-static t_list	*extra_lstclear(t_list **lst, void (*del)(void *))
+static t_list	*st_extra_lstclear(t_list **lst, void (*del)(void *))
 {
 	ft_lstclear(lst, del);
 	return (0);
 }
 
-static t_list	*nextra_lstclear(t_list **lst, void (*del)(void *), void *cntt)
+static t_list	*st_nextra_lstclear(t_list **lst, void (*del)(void *), void *cntt)
 {
 	del(cntt);
 	ft_lstclear(lst, del);
@@ -64,10 +64,10 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	{
 		cntt = f(temp->content);
 		if (cntt == NULL)
-			return (extra_lstclear(&head_new, del));
+			return (st_extra_lstclear(&head_new, del));
 		node = ft_lstnew(cntt);
 		if (node == NULL)
-			return (nextra_lstclear(&head_new, del, cntt));
+			return (st_nextra_lstclear(&head_new, del, cntt));
 		ft_lstadd_back(&head_new, node);
 		temp = temp->next;
 	}

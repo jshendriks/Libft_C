@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstsize_bonus.c                                 :+:    :+:            */
+/*   ft_lstdelone_bonus.c                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jhendrik <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/28 16:15:05 by jhendrik      #+#    #+#                 */
-/*   Updated: 2023/01/16 15:50:31 by jhendrik      ########   odam.nl         */
+/*   Created: 2022/11/01 09:03:39 by jhendrik      #+#    #+#                 */
+/*   Updated: 2024/05/12 16:35:02 by jagna         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-/*This file contains the function ft_lstsize().
- * ft_lstsize(t_list *lst):
-		This function counts the amount of list elements in the given list lst.
-		This even works if lst is NULL.
+/* ft_lstdelone(t_list *lst, void (*del)(void *)):
+		This function deletes the content in the list node 
+		pointed to by lst with the given delete function.
+		Then it frees the list node pointed to by lst.
+		This function has no return value.
  */
 
-int	ft_lstsize(t_list *lst)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	t_list	*ptr;
-	int		size;
-
-	ptr = lst;
-	size = 0;
-	while (ptr != NULL)
-	{
-		size++;
-		ptr = ptr->next;
-	}
-	return (size);
+	del(lst->content);
+	free(lst);
 }

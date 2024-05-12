@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstdelone_bonus.c                               :+:    :+:            */
+/*   ft_lstnew_bonus.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jhendrik <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/11/01 09:03:39 by jhendrik      #+#    #+#                 */
-/*   Updated: 2023/01/18 08:57:53 by jhendrik      ########   odam.nl         */
+/*   Created: 2022/10/28 15:02:47 by jhendrik      #+#    #+#                 */
+/*   Updated: 2024/05/12 16:43:41 by jagna         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-/*This file contains the function ft_lstdelone().
- * ft_lstdelone(t_list *lst, void (*del)(void *)):
-		This function deletes the content in the list node 
-		pointed to by lst with the given delete function.
-		Then it frees the list node pointed to by lst.
-		This function has no return value.
+/* ft_lstnew():
+		This function makes a new list element (node) using malloc.
+		If malloc fails, the function returns NULL.
+		Otherwise, the function assigns the given content to 
+		the content of node and the next of node will be set to NULL.
  */
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+t_list	*ft_lstnew(void *content)
 {
-	del(lst->content);
-	free(lst);
+	t_list	*node;
+
+	node = malloc(sizeof(t_list));
+	if (node == NULL)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }

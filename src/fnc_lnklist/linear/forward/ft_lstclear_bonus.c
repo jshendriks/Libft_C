@@ -6,13 +6,12 @@
 /*   By: jhendrik <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 10:01:25 by jhendrik      #+#    #+#                 */
-/*   Updated: 2023/01/18 08:54:27 by jhendrik      ########   odam.nl         */
+/*   Updated: 2024/05/12 16:33:46 by jagna         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-/*This file contains the function ft_lstclear().
- * ft_lstclear(t_list **lst, void (*del)(void *)):
+/* ft_lstclear(t_list **lst, void (*del)(void *)):
 		This function iterates through the list lst and
 		deletes and frees each node by calling the function 
 		ft_lstdelone() with the given del function.
@@ -26,13 +25,16 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	t_list	*temp_cur;
 	t_list	*temp_prv;
 
-	temp_cur = *lst;
-	temp_prv = NULL;
-	while (temp_cur != NULL)
+	if (lst != NULL && del != NULL)
 	{
-		temp_prv = temp_cur;
-		temp_cur = temp_cur->next;
-		ft_lstdelone(temp_prv, del);
+		temp_cur = *lst;
+		temp_prv = NULL;
+		while (temp_cur != NULL)
+		{
+			temp_prv = temp_cur;
+			temp_cur = temp_cur->next;
+			ft_lstdelone(temp_prv, del);
+		}
+		*lst = NULL;
 	}
-	*lst = NULL;
 }
